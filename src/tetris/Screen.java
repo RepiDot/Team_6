@@ -5,19 +5,21 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class Screen extends KeyEvent {
-	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();		// 스크린 사이즈
-	private Image screenImage = getScreenImage();									// 스크린 이미지
-	private Graphics screenGraphic = getScreenGraphic();							// 스크린 그래픽
+public class Screen extends JFrame implements KeyListener, Images {
+	private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();		
+	private Image screenImage;
+	private Graphics screenGraphic;				
+	private Board board = new Board();
+	private Block block = new Block();
+	
+	public Image background;
 	
 	public void openScreen() {
-		System.out.println(screenSize.width);
-		System.out.println(screenSize.height);
 		setSize(screenSize.width, screenSize.height);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setResizable(false);
@@ -27,7 +29,7 @@ public class Screen extends KeyEvent {
 		setLayout(new FlowLayout());
 		setVisible(true);
 		
-		background = new ImageIcon(Main.class.getResource(main)).getImage();
+		background = tetrisBackground;
 	}
 	
 	public void paint(Graphics g) {
@@ -39,9 +41,29 @@ public class Screen extends KeyEvent {
 	
 	public void screenDraw(Graphics g) {
 		g.drawImage(background, 0, 0, null);
-		g.drawImage(boardImage, 710, 70, null);
-		g.drawImage(blockImage_1, x, y, null);
-		
+		board.drawBoard(g, "basic");
+		block.drawBlock(g);
 		this.repaint();
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		block.blockKeyPressed(e);
+		if(e.getKeyCode() == 27) {				// ESC : exit
+			System.exit(0);
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
