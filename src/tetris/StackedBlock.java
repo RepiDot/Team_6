@@ -12,13 +12,8 @@ public class StackedBlock implements Images {
 		this.y = y;
 	}
 	
-	public void addStackedBlock(String color) {
-		this.color = color;
-	}
-	
 	public void drawStackedBlock(Graphics g) {
 		switch(color) {
-		case "0":		break;
 		case "red":		g.drawImage(Images.blockRedImage, x, y, null);			break;
 		case "orange":	g.drawImage(Images.blockOrangeImage, x, y, null); 		break;
 		case "yellow":	g.drawImage(Images.blockYellowImage, x, y, null);		break;
@@ -44,6 +39,15 @@ public class StackedBlock implements Images {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
 	
 	
 }
