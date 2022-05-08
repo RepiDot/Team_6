@@ -13,11 +13,11 @@ public class Board implements Images {
 		for(int i=0; i<20; i++) {
 			for(int j=0; j<5; j++) {
 				if(i % 2 == 0) {
-					g.drawImage(boardLightImage, boardX, boardY, null);
-					g.drawImage(boardDarkImage, boardX + 50, boardY, null);
+					g.drawImage(Images.BOARD_LIGHT, boardX, boardY, null);
+					g.drawImage(Images.BOARD_DARK, boardX + 50, boardY, null);
 				} else {
-					g.drawImage(boardDarkImage, boardX, boardY, null);
-					g.drawImage(boardLightImage, boardX + 50, boardY, null);
+					g.drawImage(Images.BOARD_DARK, boardX, boardY, null);
+					g.drawImage(Images.BOARD_LIGHT, boardX + 50, boardY, null);
 				}
 				boardX += 100;
 			}

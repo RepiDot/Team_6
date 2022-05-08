@@ -1,6 +1,6 @@
 package tetris;
 
-public class BlockCase {
+public class BlockCase implements Images {
 	private BlockData[] blockData;
 	private int blockX;
 	private int blockY;

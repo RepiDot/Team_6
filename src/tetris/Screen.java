@@ -29,7 +29,7 @@ public class Screen extends JFrame implements KeyListener, Images {
 		setLayout(new FlowLayout());
 		setVisible(true);
 		
-		background = tetrisBackground;
+		background = Images.BACKGROUND_TETRIS;
 	}
 	
 	public void paint(Graphics g) {
