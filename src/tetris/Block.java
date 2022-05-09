@@ -57,24 +57,15 @@ public class Block implements Images {
 			}
 		}
 		
-		drawFallingLocation(g);
+		drawDroppingLocation(g);
 	}
 	
 	private void changeBlock() {
 		blockX = 960;
 		blockY = -10;
 		blockType = 0;
-		
-		for(int i=1; i<8; i++) {
-			if(priority[0] > priority[i]) {
-				priority[0] = priority[i];
-			}
-		}
-		
-		color = (int)(Math.random() * 7);
-		if(priority[0] < priority[color]) {
-			color = (int)(Math.random() * 7);
-		}
+
+		blockPriority();
 		
 		switch(color) {
 		case(0):	blockImage = Images.BLOCK_RED;	locationImage = Images.LOCATION_RED;		
@@ -94,6 +85,20 @@ public class Block implements Images {
 		}
 	}
 	
+	private void blockPriority() {
+		for(int i=1; i<8; i++) {
+			if(priority[0] > priority[i]) {
+				priority[0] = priority[i];
+			}
+		}
+		
+		color = (int)(Math.random() * 7);
+		if(priority[0] < priority[color + 1]) {
+			color = (int)(Math.random() * 7);
+		}
+		
+	}
+	
 	private void stackBlock() {
 		int a;
 		int b;
@@ -104,7 +109,7 @@ public class Block implements Images {
 		}
 	}
 	
-	private int findFallingLocation() {
+	private int findDroppingLocation() {
 		int nextY = 50;
 		outer : while(true) {
 			for(int i=0; i<blockNum; i++) {
@@ -120,8 +125,8 @@ public class Block implements Images {
 		return nextY;
 	}
 	
-	private void fallBlock() {
-		int nextY = findFallingLocation();
+	private void dropBlock() {
+		int nextY = findDroppingLocation();
 		
 		for(int i=0; i<blockNum; i++) {
 			blockData[i].setY(blockData[i].getY() + nextY);
@@ -131,8 +136,8 @@ public class Block implements Images {
 		changeBlock();
 	}
 	
-	private void drawFallingLocation(Graphics g) {
-		int nextY = findFallingLocation();
+	private void drawDroppingLocation(Graphics g) {
+		int nextY = findDroppingLocation();
 		
 		for(int i=0; i<blockNum; i++) {
 			g.drawImage(locationImage, blockData[i].getX(), blockData[i].getY() + nextY, null);
@@ -205,7 +210,7 @@ public class Block implements Images {
 		// TODO Auto-generated method stub
 		
 		if(e.getKeyCode() == 32) {				// Key : Space / Event : Teleport blocks as low as possible and change block
-			fallBlock();
+			dropBlock();
 			
 		} else if(e.getKeyCode() == 37) {		// Key : Left / Event : Move blocks to the left
 			if(isAbleToMove(e)) {
