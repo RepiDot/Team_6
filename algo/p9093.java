@@ -5,21 +5,22 @@ import java.util.*;
 public class p9093 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		int n = scan.nextInt();
-		String str;
-		String[] reverse = null;
-		String[] reversedStr = null;
+		int n = Integer.parseInt(scan.nextLine());
+		String[] str = new String[n];
 		for(int i = 0; i<n; i++) {
-			str = scan.next();
-			String[] sic = str.split(" ");
-			for(int k =0; k<sic.length; k++) {
-				StringBuffer reverse[k] = new StringBuffer(sic[k]);
-				String reversedStr = sic[k].reverse().toString();
-				
-				System.out.println(reversed)
-			}
+			str[i]=scan.nextLine();
 		}
-
+		for(int i=0; i<n; i++) {
+			String[] sic =  str[i].split(" ");
+			for(int k=0; k<sic.length;k++) {
+				int size = sic[k].length()-1;
+				String sum = "";
+				while(size>=0) {
+					sum = sum+sic[k].charAt(size--);
+				}
+				System.out.print(sum+" ");
+			}
+			System.out.println();
+		}
 	}
-
 }

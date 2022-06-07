@@ -2,7 +2,7 @@ package algo;
 
 import java.util.*;
 
-public class Main {
+public class p1000 {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int A = scan.nextInt();
