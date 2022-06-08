@@ -1,3 +1,6 @@
+<style>
+  .markdown-body hr{ height:0.15em; }
+</style>
 # Tetris-Project
 Team 6 Project
 <br/><br/>
