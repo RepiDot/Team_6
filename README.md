@@ -11,7 +11,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=YOUKNOWGOdd!&fontAlign=80&fontAlignY=40&color=gradient)
+![waving](https://capsule-render.vercel.app/api?type=waving&height=200&text=YOUKNOWGOddd!&fontAlign=80&fontAlignY=40&color=gradient)
 
 <div align=center>
 
