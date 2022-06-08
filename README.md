@@ -1,3 +1,3 @@
 # Tetris-Project
 Team 6 Project
-<img src="https://img.shields.io/badge/Python-#3776AB?style=for-the-badge&logo=Python&logoColor=black">
+<img src="https://img.shields.io/badge/파이썬-3776AB?style=flat-square&logo=Python&logoColor=black"/>
