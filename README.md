@@ -31,9 +31,9 @@ Here are some ideas to get you started:
 
 
 
-# Project Title
+# 유노고
 
-One Paragraph of project description goes here
+2WDA 1학기 조별프로젝트
 
 ## Getting Started
 
