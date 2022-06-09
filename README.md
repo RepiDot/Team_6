@@ -46,9 +46,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## 기술 스택
 
-| JavaScript | TypeScript |  React   |  Node   |
-| :--------: | :--------: | :------: | :-----: |
-|   ![js]    |   ![ts]    | ![react] | ![node] |
+| 노태권 | 고건호 |  김유현   | 
+| :--------: | :--------: | :------: | 
+|   ![js]    |   ![ts]    | ![react] | 
 
 ### Prerequisites
 
