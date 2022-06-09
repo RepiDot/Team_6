@@ -5,21 +5,10 @@ import javax.swing.event.*;
 import javax.swing.plaf.ColorUIResource;
 
 import java.util.*;
-/* 1. ºí·Ï ¶³¾îÁö±â ±¸Çö
- * 2. ºí·Ï 7°¡Áö È­¸é Ãâ·Â ±¸Çö
- * 3. È¸Àü ±¸Çö
- * 4. º® ±¸Çö (º®Àº 1, ºó °ø°£Àº 0)
- * 5. ¶³¾îÁö´Â ºí·ÏÀÌ ¹Ù´Ú¿¡ ´êÀ¸¸é ¸ØÃß°í º®À¸·Î º¯ÇÏµµ·Ï ±¸Çö
- * 6. º® ·£´ıÇÏ°Ô ¶³¾îÁöµµ·Ï ±¸Çö 
- * 7. ¶³¾îÁö´Â ºí·ÏÀÌ ¿ŞÂÊ, ¿À¸¥ÂÊ º®À» ¹ş¾î³ªÁö ¸øÇÏ°Ô ¸¸µê, ºí·ÏÀÌ º®¿¡ ´ê¾ÆÀÖÀ¸¸é È¸Àü ¸øÇÏ°Ô ¸¸µê  <- ¼öÁ¤¿Ï·áÇÏ±ä Çß´Âµ¥ Á» ºÒ¿ÏÀü
- * 8. ´ÙÀ½ ¶³¾îÁú ºí·Ï ¹Ì¸® º¸¿©Áöµµ·Ï ±¸Çö < - JLabel À§Ä¡ Á¶Á¤
- * 9. ÇÑ Çà¿¡ ºí·ÏÀÌ ¸ğµÎ Â÷¸é ±× Çà¿¡ ÀÖ´Â ºí·ÏÀ» ¾ø¾Ö°í À§¿¡ ÀÖ´Â ¸ğµç ºí·ÏÀÌ ¶³¾îÁöµµ·Ï ±¸Çö (¶³¾îÁö´Â ºí·Ï ÀÜ»ó ³²¾ÆÀÖ´Â ¹ö±×, ¸î°¡Áö ¹ö±× ¼öÁ¤¿Ï·á)
- * 10. ÀçµµÀü ¹öÆ°
- * 11. Á¡¼ö ·¹ÀÌºí ¸¸µé±â <- µğÀÚÀÎ ¼öÁ¤ ÇÊ¿ä
- * 12. JDialog ÀÌ¿ëÇØ¼­ °ÔÀÓ ¿À¹ö½Ã Á¡¼ö ·¹ÀÌºí, ÀçµµÀü ¹öÆ° ¶ßµµ·Ï ±¸Çö 
- * 13. È¸Àü ºÎºĞ ¹ö±× ¼öÁ¤.
+/* 1. ë‚œì´ë„ ë¯¸êµ¬í˜„
+ * 2. ìŠ¤í˜ì´ìŠ¤ë°” ë¯¸êµ¬í˜„
  * */
-public class TetrisEx extends JFrame {
+public class Tetris extends JFrame {
    Container c = getContentPane();
    TetrisPanel TP = new TetrisPanel();
    JDialog JD = new JDialog();
@@ -38,13 +27,13 @@ public class TetrisEx extends JFrame {
    
    boolean limit = false;
    
-   int curX[]= new int[4], curY[] = new int [4]; // ºí·ÏµéÀÇ ÁÂÇ¥ ÀúÀå
+   int curX[]= new int[4], curY[] = new int [4]; // ë¸”ë¡ë“¤ì˜ ì¢Œí‘œ ì €ì¥
    
    int blocks[][][][]  = 
       {
          {
-            //¡á
-            //¡á¡á¡á
+            //â– 
+            //â– â– â– 
             {
                {0,0,0,0},
                {1,0,0,0},
@@ -71,8 +60,8 @@ public class TetrisEx extends JFrame {
             }
          },
          {
-               //  ¡á
-               //¡á¡á¡á
+               //  â– 
+               //â– â– â– 
             {
                {0,0,0,0},
                {0,0,1,0},
@@ -99,8 +88,8 @@ public class TetrisEx extends JFrame {
             }
          },
          {
-               //  ¡á¡á
-               //  ¡á¡á
+               //  â– â– 
+               //  â– â– 
             {
                {0,0,0,0},
                {1,1,0,0},
@@ -127,7 +116,7 @@ public class TetrisEx extends JFrame {
             }
          },
          {
-               // ¡á¡á¡á¡á
+               // â– â– â– â– 
             {
                {0,0,0,0},
                {0,0,0,0},
@@ -154,8 +143,8 @@ public class TetrisEx extends JFrame {
             }
          },
          {
-                //¡á
-               //¡á¡á¡á
+                //â– 
+               //â– â– â– 
             {
                {0,0,0,0},
                {0,1,0,0},
@@ -182,8 +171,8 @@ public class TetrisEx extends JFrame {
             }   
          },
          {
-                //  ¡á¡á
-                //   ¡á¡á
+                //  â– â– 
+                //   â– â– 
             {
                {0,0,0,0},
                {1,1,0,0},
@@ -210,8 +199,8 @@ public class TetrisEx extends JFrame {
             }
          },
          {
-                //  ¡á¡á
-               //  ¡á¡á
+                //  â– â– 
+               //  â– â– 
             {
                {0,0,0,0},
                {0,1,1,0},
@@ -260,12 +249,12 @@ public class TetrisEx extends JFrame {
                      {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
                      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
                      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}};
-   JButton btn = new JButton("ÀçµµÀü");
+   JButton btn = new JButton("ì¬ë„ì „");
    JLabel lbl = new JLabel();
    JLabel lbl2 = new JLabel();
       
-   TetrisEx(){
-      setTitle("Å×Æ®¸®½º");
+   Tetris(){
+      setTitle("í…ŒíŠ¸ë¦¬ìŠ¤");
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       setLayout(null);
       TP.setSize(720,600);
@@ -275,15 +264,15 @@ public class TetrisEx extends JFrame {
       th = new TetrisThread();
       
       // JDialog 
-      JD.setTitle("Á¡¼ö");
+      JD.setTitle("ì ìˆ˜");
       JD.setSize(250,190);
       JD.setLayout(new FlowLayout(FlowLayout.CENTER, 150, 30));
       
       
       
       lbl.setFont(new Font("arial",Font.PLAIN,15));
-      lbl2.setText("Á¡  ¼ö");
-      lbl2.setFont(new Font("³ª´®°íµñ",Font.PLAIN,15));
+      lbl2.setText("ì   ìˆ˜");
+      lbl2.setFont(new Font("ë‚˜ëˆ”ê³ ë”•",Font.PLAIN,15));
       
       
       TP.addKeyListener(new KeyAdapter(){
@@ -315,7 +304,7 @@ public class TetrisEx extends JFrame {
       TP.setBackground(Color.WHITE);
       setSize(530,520);
       setVisible(true);
-      // È­¸é Áß¾Ó Á¤·Ä
+      // í™”ë©´ ì¤‘ì•™ ì •ë ¬
       Dimension frameSize = this.getSize();
       Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
       setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
@@ -343,24 +332,22 @@ public class TetrisEx extends JFrame {
          TP.add(lbl);
          lbl.setText(Integer.toString(score*100));
          
-         //g.setColor(Color.ORANGE); // »õ·Î ¶³¾îÁö´Â ºí·°,¹Ì¸®º¸±â  ºí·° »ö±ò
-         
-         // ´ÙÀ½ ³ª¿Ã µµÇü Ãâ·Â
+         // ë‹¤ìŒ ë‚˜ì˜¬ ë„í˜• ì¶œë ¥
          blockLookAhead(g);
          
-         // º®ÀÌ ÃµÀå¿¡ ´êÀ¸¸é °ÔÀÓ ¿À¹ö
+         // ë²½ì´ ì²œì¥ì— ë‹¿ìœ¼ë©´ ê²Œì„ ì˜¤ë²„
          gameOverCheck();
                 
-         // ÇÑ ÇàÀÌ ¸ğµÎ ºí·ÏÀ¸·Î Ã¤¿öÁø °æ¿ì ºí·Ïµé Á¦°Å(Ã¤¿öÁöÁö¾ÊÀº °æ¿ì ºí·Ï ¶³¾îÁöµµ·Ï)
+         // í•œ í–‰ì´ ëª¨ë‘ ë¸”ë¡ìœ¼ë¡œ ì±„ì›Œì§„ ê²½ìš° ë¸”ë¡ë“¤ ì œê±°(ì±„ì›Œì§€ì§€ì•Šì€ ê²½ìš° ë¸”ë¡ ë–¨ì–´ì§€ë„ë¡)
          removeBlock(cnt, cnt2, g);
          
-         // ºí·ÏÀÌ º®¿¡ ÂøÁöÇÏ¸é ºí·Ï->º®À¸·Î º¯È¯(¶³¾îÁö´Â ºí·Ï ÃÊ±âÈ­)
+         // ë¸”ë¡ì´ ë²½ì— ì°©ì§€í•˜ë©´ ë¸”ë¡->ë²½ìœ¼ë¡œ ë³€í™˜(ë–¨ì–´ì§€ëŠ” ë¸”ë¡ ì´ˆê¸°í™”)
          blockToWall();
          
-         // º®µéÀ» »ı¼º
+         // ë²½ë“¤ì„ ìƒì„±
          makeBlock(g);
          
-         // Å×µÎ¸® »ı¼º
+         // í…Œë‘ë¦¬ ìƒì„±
          makeBorder(g);
        
        
@@ -370,7 +357,7 @@ public class TetrisEx extends JFrame {
          }
       }
       
-      public void blockLookAhead(Graphics g){
+      public void blockLookAhead(Graphics g){ // ìƒˆë¡œ ë–¨ì–´ì§€ëŠ” ë¸”ëŸ­,ë¯¸ë¦¬ë³´ê¸°  ë¸”ëŸ­ ìƒ‰ê¹”
          for(int a = 0; a<4 ;a++){
               for(int b = 0; b<4;b++){
                  if(blocks[random2][0][a][b] == 1){
@@ -432,7 +419,7 @@ public class TetrisEx extends JFrame {
                    }
                score++;
              }else{
-                blockDown(cnt,g); // ÇÑ ÇàÀÌ ¸ğµÎ ºí·ÏÀ¸·Î Ã¤¿öÁöÁö ¾ÊÀ» ¶§¸¸ ºí·ÏÀÌ ³»·Á°¡µµ·Ï ÇÔ
+                blockDown(cnt,g); // í•œ í–‰ì´ ëª¨ë‘ ë¸”ë¡ìœ¼ë¡œ ì±„ì›Œì§€ì§€ ì•Šì„ ë•Œë§Œ ë¸”ë¡ì´ ë‚´ë ¤ê°€ë„ë¡ í•¨
              }
              cnt2 = 0 ;
           }
@@ -453,7 +440,7 @@ public class TetrisEx extends JFrame {
          for(int j = 0; j<4 ;j++){
               for(int k = 0; k<4;k++){
                  if(blocks[random][rotation][j][k] == 1){
-                    curX[cnt] = ((k*blocksize)+wid)/blocksize; curY[cnt] = ((j*blocksize)+hgt)/blocksize;//curX,Y[0][1][2][3]¿¡ ÁÂÇ¥ 4°³ ÀúÀå
+                    curX[cnt] = ((k*blocksize)+wid)/blocksize; curY[cnt] = ((j*blocksize)+hgt)/blocksize;//curX,Y[0][1][2][3]ì— ì¢Œí‘œ 4ê°œ ì €ì¥
                     g.fill3DRect(curX[cnt]*blocksize+20, curY[cnt]*blocksize+60, blocksize, blocksize, true);
                     
                     cnt ++;
@@ -462,8 +449,8 @@ public class TetrisEx extends JFrame {
            }
       }
       
-      // ¶³¾îÁö´ø ºí·ÏÀÌ º®ÀÌ µÇ´ÂÁö °Ë»ç
-      // º®ÀÌ µÇ¸é wid=120, hgt=0 À¸·Î ºí·Ï ÃÊ±âÈ­, rotationµµ ÃÊ±âÈ­ 
+      // ë–¨ì–´ì§€ë˜ ë¸”ë¡ì´ ë²½ì´ ë˜ëŠ”ì§€ ê²€ì‚¬
+      // ë²½ì´ ë˜ë©´ wid=120, hgt=0 ìœ¼ë¡œ ë¸”ë¡ ì´ˆê¸°í™”, rotationë„ ì´ˆê¸°í™” 
       public void blockToWall(){
          try{
          for(int z = 0; z<4 ; z++)
@@ -485,27 +472,27 @@ public class TetrisEx extends JFrame {
          
       }
       
-      // ¿ŞÂÊ º®¿¡ Ãæµ¹ÇÏ¸é ¸ø¿òÁ÷ÀÌµµ·Ï
+      // ì™¼ìª½ ë²½ì— ì¶©ëŒí•˜ë©´ ëª»ì›€ì§ì´ë„ë¡
       public int collision_LEFT(){
          for(int i=0; i<4; i++){
-            if(gameboard[curY[i]][curX[i]-1] == 1)  // Ãæµ¹½Ã 1 ¹İÈ¯
+            if(gameboard[curY[i]][curX[i]-1] == 1)  // ì¶©ëŒì‹œ 1 ë°˜í™˜
                return 1;
          }
-         return 0; // Ãæµ¹ÇÏÁö ¾ÊÀ¸¸é 0 ¹İÈ¯
+         return 0; // ì¶©ëŒí•˜ì§€ ì•Šìœ¼ë©´ 0 ë°˜í™˜
       }
       
-      // ¿À¸¥ÂÊ º®¿¡ Ãæµ¹ÇÏ¸é ¸ø ¿òÁ÷ÀÌµµ·Ï
+      // ì˜¤ë¥¸ìª½ ë²½ì— ì¶©ëŒí•˜ë©´ ëª» ì›€ì§ì´ë„ë¡
       public int collision_RIGHT(){
          for(int i=0; i<4; i++){
-            if(gameboard[curY[i]][curX[i]+1] == 1)   // Ãæµ¹½Ã 1¹İÈ¯
+            if(gameboard[curY[i]][curX[i]+1] == 1)   // ì¶©ëŒì‹œ 1ë°˜í™˜
                return 1;
          }
-         return 0; // Ãæµ¹ÇÏÁö ¾ÊÀ¸¸é 0¹İÈ¯
+         return 0; // ì¶©ëŒí•˜ì§€ ì•Šìœ¼ë©´ 0ë°˜í™˜
       }
       
-      // curX,Y¿¡ ´ÙÀ½ È¸Àü µµÇüÀÇ Àı´ëÁÂÇ¥¸¦ ¸ğµÎ ±â·ÏÇØµÎ°í, ¸¸¾à ¿À¸¥ÂÊÀÌ³ª ¿ŞÂÊ XÁÂÇ¥1,2Ä­ ¾È¿¡ º®ÀÌ ÀÖÀ¸¸é ±×¸¸Å­ ¿À¸¥ÂÊ È¤Àº ¿ŞÂÊÀ¸·Î ¹Ğ¾î¼­ ¹èÄ¡
+      // curX,Yì— ë‹¤ìŒ íšŒì „ ë„í˜•ì˜ ì ˆëŒ€ì¢Œí‘œë¥¼ ëª¨ë‘ ê¸°ë¡, ë§Œì•½ ì˜¤ë¥¸ìª½ì´ë‚˜ ì™¼ìª½ Xì¢Œí‘œ1,2ì¹¸ ì•ˆì— ë²½ì´ ìˆìœ¼ë©´ ê·¸ë§Œí¼ ì˜¤ë¥¸ìª½ í˜¹ì€ ì™¼ìª½ìœ¼ë¡œ ë°€ì–´ì„œ ë°°ì¹˜
       public void rotationCheck(){
-       // curX,Y¿¡ ´ÙÀ½ È¸Àü µµÇüÀÇ Àı´ëÁÂÇ¥¸¦ ¸ğµÎ ±â·ÏÇØµÎ°í, ¹Ø¿¡ ±¸¹®¿¡¼­ ±× Àı´ëÁÂÇ¥ÀÇ °ªÀÌ º®¿¡ ´ê´ÂÁö ÆÇ´Ü
+       // curX,Yì— ë‹¤ìŒ íšŒì „ ë„í˜•ì˜ ì ˆëŒ€ì¢Œí‘œë¥¼ ëª¨ë‘ ê¸°ë¡, ë°‘ì— êµ¬ë¬¸ì—ì„œ ê·¸ ì ˆëŒ€ì¢Œí‘œì˜ ê°’ì´ ë²½ì— ë‹¿ëŠ”ì§€ íŒë‹¨
          int cnt2=0;
           for(int j = 0; j<4 ;j++){
               for(int k = 0; k<4;k++){
@@ -519,18 +506,18 @@ public class TetrisEx extends JFrame {
               }
           }
           
-       // curX,Y¿¡ ÀúÀåµÈ ÁÂÇ¥¸¦ ÀÌ¿ë
+       // curX,Yì— ì €ì¥ëœ ì¢Œí‘œë¥¼ ì´ìš©
           int chk = 0;
           int blank =0;
           int error = 0;
-           // ¿ŞÂÊ º®
+           // ì™¼ìª½ ë²½
              
                 
                       if(gameboard[curY[0]][curX[0]] == 1 || (random == 6 && gameboard[curY[2]][curX[2]] == 1) || (random == 1 && gameboard[curY[1]][curX[1]] ==1 )){
-                         chk = 1; // ¸¸¾à ´ÙÀ½ È¸ÀüÇÑ µµÇüÀÇ À§Ä¡°¡ º®°ú °ãÄ£´Ù¸é chk=1·Î Ç¥½ÃÇÔ           
+                         chk = 1; // ë§Œì•½ ë‹¤ìŒ íšŒì „í•œ ë„í˜•ì˜ ìœ„ì¹˜ê°€ ë²½ê³¼ ê²¹ì¹œë‹¤ë©´ chk=1ë¡œ í‘œì‹œí•¨           
                          error++;
                          System.out.println("chk1");
-                         if(random == 3){ // ÀÏÀÚ¸·´ëÀÇ °æ¿ì È¸ÀüÇÒ ¿©À¯°¡ ÀÖ´Â °ø¹éÀÌ ¾øÀ¸¸é È¸Àü¸·À½
+                         if(random == 3){ // ì¼ìë§‰ëŒ€ì˜ ê²½ìš° íšŒì „í•  ì—¬ìœ ê°€ ìˆëŠ” ê³µë°±ì´ ì—†ìœ¼ë©´ íšŒì „ë§‰ìŒ
                             for(int i=1;i<5;i++)
                                if(gameboard[curY[0]][curX[0]+i] == 0)
                                   blank++;
@@ -538,7 +525,7 @@ public class TetrisEx extends JFrame {
                                chk = 4;
                             
                               System.out.println(blank);
-                         }else{ // ±× ¿ÜÀÇ °æ¿ì È¸ÀüÇÒ ¿©À¯°¡ ¾ø´Â °ø¹éÀÌ ¾øÀ¸¸é È¸Àü ¸·À½
+                         }else{ // ê·¸ ì™¸ì˜ ê²½ìš° íšŒì „í•  ì—¬ìœ ê°€ ì—†ëŠ” ê³µë°±ì´ ì—†ìœ¼ë©´ íšŒì „ ë§‰ìŒ
                             for(int i=1; i<4;i++)
                                if(gameboard[curY[0]][curX[0]+i] == 0)
                                   blank++;
@@ -550,12 +537,12 @@ public class TetrisEx extends JFrame {
                          
                       }
             
-          //¿À¸¥ÂÊ º®
+          //ì˜¤ë¥¸ìª½ ë²½
              
                  
                       else if(gameboard[curY[2]][curX[2]] == 1){
                         error++;
-                       chk = 2; // ¸¸¾à ´ÙÀ½ È¸ÀüÇÑ µµÇüÀÇ À§Ä¡°¡ º®°ú °ãÄ£´Ù¸é chk=2·Î Ç¥½ÃÇÔ  
+                       chk = 2; // ë§Œì•½ ë‹¤ìŒ íšŒì „í•œ ë„í˜•ì˜ ìœ„ì¹˜ê°€ ë²½ê³¼ ê²¹ì¹œë‹¤ë©´ chk=2ë¡œ í‘œì‹œí•¨  
                        System.out.println("chk2");
                        
                        for(int i=1; i<5;i++)
@@ -570,7 +557,7 @@ public class TetrisEx extends JFrame {
                     }
                       else if(gameboard[curY[3]][curX[3]] == 1){
                        error++;
-                       chk = 3; // ¸¸¾à ´ÙÀ½ È¸ÀüÇÑ µµÇüÀÇ À§Ä¡°¡ º®°ú °ãÄ£´Ù¸é chk=3·Î Ç¥½ÃÇÔ    
+                       chk = 3; // ë§Œì•½ ë‹¤ìŒ íšŒì „í•œ ë„í˜•ì˜ ìœ„ì¹˜ê°€ ë²½ê³¼ ê²¹ì¹œë‹¤ë©´ chk=3ë¡œ í‘œì‹œí•¨    
                        System.out.println("chk3");
                        for(int i=0; i<5;i++)
                           if(gameboard[curY[3]][curX[3]-i] == 0)
@@ -584,7 +571,7 @@ public class TetrisEx extends JFrame {
              
           
           
-          if(chk == 1){ // chk = 1(´ÙÀ½ È¸ÀüÇÑ µµÇüÀÇ À§Ä¡°¡ º®°ú Áßº¹µÇ¸é)¸é wid(°¡·Î)·Î 30ÀÌµ¿
+          if(chk == 1){ // chk = 1(ë‹¤ìŒ íšŒì „í•œ ë„í˜•ì˜ ìœ„ì¹˜ê°€ ë²½ê³¼ ì¤‘ë³µë˜ë©´)ë©´ wid(ê°€ë¡œ)ë¡œ 30ì´ë™
              wid += blocksize;
              rotation++;
              rotation = rotation%4;
@@ -609,10 +596,10 @@ public class TetrisEx extends JFrame {
       public void makeBorder(Graphics g){
          g.setColor(Color.GRAY);
          
-         g.draw3DRect(28, 70, 5, 375,true); // ±âµÕ
-         g.draw3DRect(265, 70, 5, 375, true); // ±âµÕ
-         g.draw3DRect(15, 445, 270, 5,true); // ¹Ù´Ú
-         g.draw3DRect(15, 65, 270, 5, true); // ÃµÀå
+         g.draw3DRect(28, 70, 5, 375,true); // ê¸°ë‘¥
+         g.draw3DRect(265, 70, 5, 375, true); // ê¸°ë‘¥
+         g.draw3DRect(15, 445, 270, 5,true); // ë°”ë‹¥
+         g.draw3DRect(15, 65, 270, 5, true); // ì²œì¥
       }
       
       void down(){
@@ -631,14 +618,14 @@ public class TetrisEx extends JFrame {
          }
       }
       void moveLeft(){
-         int sel = collision_LEFT();// selÀÌ 1ÀÌ¸é Ãæµ¹, 0ÀÌ¸é Ãæµ¹X
+         int sel = collision_LEFT();// selì´ 1ì´ë©´ ì¶©ëŒ, 0ì´ë©´ ì¶©ëŒX
          if(sel == 0 && limit == false){
             wid -= blocksize;
                TP.repaint();
          }
       }
       void moveRight(){
-         int sel = collision_RIGHT();// selÀÌ 1ÀÌ¸é Ãæµ¹, 0ÀÌ¸é Ãæµ¹X
+         int sel = collision_RIGHT();// selì´ 1ì´ë©´ ì¶©ëŒ, 0ì´ë©´ ì¶©ëŒX
          if(sel == 0 && limit == false){ 
             wid += blocksize;
             TP.repaint();
@@ -652,7 +639,7 @@ public class TetrisEx extends JFrame {
          while(true){
             try{
                sleep(500);
-               if(limit == false) // limitÀÌ falseÀÏ °æ¿ì¿¡¸¸ ÀÛµ¿. true°¡ µÇ¸é Å×Æ®¸®½º ÀÛµ¿ÁßÁö
+               if(limit == false) // limitì´ falseì¼ ê²½ìš°ì—ë§Œ ì‘ë™. trueê°€ ë˜ë©´ í…ŒíŠ¸ë¦¬ìŠ¤ ì‘ë™ì¤‘ì§€
                   TP.down();
             }catch(InterruptedException e){
                return;
@@ -662,6 +649,6 @@ public class TetrisEx extends JFrame {
    }
    
    public static void main(String[] args){
-      new TetrisEx();
+      new Tetris();
    }
 }
