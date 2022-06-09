@@ -40,65 +40,26 @@ Here are some ideas to get you started:
 
 2WDA 1학기 조별프로젝트
 
-## Getting Started
+<br/>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-## 기술 스택
+## 조원 프로필
 
 | 노태권 | 고건호 |  김유현   | 
 | :--------: | :--------: | :------: | 
-|   ![js]    |   ![ts]    | ![react] | 
+|   ![노태권사진]    |   ![고건호사진]    | ![] | 
 
-### Prerequisites
 
-What things you need to install the software and how to install them
+## 프로젝트 소개
 
-```
-Give examples
-```
+<p align="justify">
+프로젝트 개요/동기
+</p>
 
-### Installing
+<p align="center">
 
-A step by step series of examples that tell you how to get a development env running
+</p>
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+<br>
 
 ## Built With
 
@@ -106,32 +67,36 @@ Add additional notes about how to deploy this on a live system
 * [고권호](https://maven.apache.org/) - 역할2
 * [김유현](https://rometools.github.io/rome/) - 역할3
 
-## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+<br>
 
-## Versioning
+## 구현 기능
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+### 기능 1
 
-## Authors
+### 기능 2
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+### 기능 3
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+### 기능 4
 
-## License
+<br>
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+## 배운 점 & 아쉬운 점
 
-## Acknowledgments
+<p align="justify">
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+</p>
 
+<br>
 
+## 라이센스
 
+MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
 
+<!-- Stack Icon Refernces -->
 
-
+[js]: /images/stack/javascript.svg
+[ts]: /images/stack/typescript.svg
+[react]: /images/stack/react.svg
+[node]: /images/stack/node.svg
