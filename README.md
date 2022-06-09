@@ -46,7 +46,7 @@ Here are some ideas to get you started:
 
 | 노태권 | 고건호 |  김유현   | 
 | :--------: | :--------: | :------: | 
-|   ![노태권사진]    |   ![고건호사진]    | ![] | 
+|   ![노태권사진]    |   ![고건호사진]    | ![김유현사진](https://github.com/yuhyeon99/react-github-pages) | 
 
 
 ## 프로젝트 소개
@@ -70,7 +70,7 @@ Here are some ideas to get you started:
 
 <br>
 
-## 구현 기능
+## 테트리스 구현 기능
 
 ### 기능 1
 
