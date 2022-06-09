@@ -51,13 +51,12 @@ Here are some ideas to get you started:
 
 ## 프로젝트 소개
 
-<p align="justify">
-프로젝트 개요/동기
-</p>
+### 미션01. 테트리스 개발(JAVA)
 
-<p align="center">
+### 미션02. 관심 신기술 : NFT
 
-</p>
+### 미션03. 알고리즘 : BOJ(백준 알고리즘)
+
 
 
 
