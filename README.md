@@ -59,13 +59,6 @@ Here are some ideas to get you started:
 
 </p>
 
-<br>
-
-## Built With
-
-* [노태권](http://www.dropwizard.io/1.0.2/docs/) - 역할1
-* [고권호](https://maven.apache.org/) - 역할2
-* [김유현](https://rometools.github.io/rome/) - 역할3
 
 
 <br>
