@@ -46,7 +46,7 @@ Here are some ideas to get you started:
 
 | 노태권 | 고건호 |  김유현   | 
 | :--------: | :--------: | :------: | 
-|   <img src="https://user-images.githubusercontent.com/83055700/172781543-1af04f67-6279-4bf3-8915-b0784ff2bc64.png" width="100" height="100">    |   <img src="https://user-images.githubusercontent.com/83055700/172781024-cc8a96a2-df7f-43b2-abcf-96fcc83bd4a0.png" width="100" height="100" >   | <img src="https://user-images.githubusercontent.com/83055700/172781721-680f71e0-56b2-4bde-a103-a865b009b3f1.png" width="100" height="100" >(https://github.com/yuhyeon99/react-github-pages) | 
+|   <img src="https://user-images.githubusercontent.com/83055700/172781543-1af04f67-6279-4bf3-8915-b0784ff2bc64.png" width="100" height="100">    |   <img src="https://user-images.githubusercontent.com/83055700/172781024-cc8a96a2-df7f-43b2-abcf-96fcc83bd4a0.png" width="100" height="100" >   | <a href="https://github.com/yuhyeon99/react-github-pages"><img src="https://user-images.githubusercontent.com/83055700/172781721-680f71e0-56b2-4bde-a103-a865b009b3f1.png" width="100" height="100" > </a>  | 
 
 
 ## 프로젝트 소개
